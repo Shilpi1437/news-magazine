@@ -61,7 +61,7 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="tech-index.html">Home</a>
+                                <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li
                                 class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
