@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from gambolthemes.net/html-items/gambo_admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Aug 2020 17:25:09 GMT -->
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description-gambolthemes" content="">
-	<meta name="author-gambolthemes" content="">
-	<title>Gambo Supermarket Admin</title>
-	<link href="css/styles.css" rel="stylesheet">
-	<link href="css/admin-style.css" rel="stylesheet">
-	
-	<!-- Vendor Stylesheets -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-	
-</head>
-
-    <body class="sb-nav-fixed">
+  <?php include('header.php')?>
+  <?php
+			   include_once 'db.php';
+			   $result = mysqli_query($con,"SELECT * FROM news");
+			
+				 $row=mysqli_fetch_array($result);
+			   
+			   ?>
+  <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-clr">
             <a class="navbar-brand logo-brand" href="index.html">Gambo Supermarket</a>
 			<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -70,82 +58,22 @@
 													</tr>
 												</thead>
 												<tbody>
+													<?php if(!empty($row))
+												print_r($row);
+												
+													{ foreach($row as $r=>$val)
+														print_r($val);
+													{ ?>
 													<tr>
-														<td>ORDER12345</td>
-														<td>
-															<a href="#" target="_blank">Product Title Here</a>
-														</td>
-														<td>
-															<span class="delivery-time">15/06/2020</span>
-															<span class="delivery-time">4:00PM - 6.00PM</span>
-														</td>
-														<td>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</td>
-														<td>
-															<span class="badge-item badge-status">Pending</span>
-														</td>
-														<td>$90</td>
-														<td class="action-btns">
-															<a href="order_view.html" class="views-btn"><i class="fas fa-eye"></i></a>
-															<a href="order_edit.html" class="edit-btn"><i class="fas fa-edit"></i></a>
-														</td>
+													<td><?php echo $row['title']; ?></td>
+				   <td><?php echo $r['description'] ; ?></td>
+				   <td><?php echo $r['us_name']; ?></td>
+				   <td><?php echo $r['us_email'] ; ?></td>
+				   <td><?php echo $r['type'] ; ?></td>
+				   <td><?php echo $r['created_at']; ?></td>
+			
 													</tr>
-													<tr>
-														<td>ORDER12346</td>
-														<td>
-															<a href="#" target="_blank">Product Title Here</a>
-														</td>
-														<td>
-															<span class="delivery-time">13/06/2020</span>
-															<span class="delivery-time">2:00PM - 4.00PM</span>
-														</td>
-														<td>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</td>
-														 <td>
-															<span class="badge-item badge-status">Pending</span>
-														</td>
-														<td>$105</td>
-														<td class="action-btns">
-															<a href="order_view.html" class="views-btn"><i class="fas fa-eye"></i></a>
-															<a href="order_edit.html" class="edit-btn"><i class="fas fa-edit"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>ORDER12347</td>
-														<td>
-															<a href="#" target="_blank">Product Title Here</a>
-														</td>
-														<td>
-															<span class="delivery-time">13/6/2020</span>
-															<span class="delivery-time">5:00PM - 7.00PM</span>
-														</td>
-														<td>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</td>
-														<td>
-															<span class="badge-item badge-status">Pending</span>
-														</td>
-														<td>$60</td>
-														<td class="action-btns">
-															<a href="order_view.html" class="views-btn"><i class="fas fa-eye"></i></a>
-															<a href="order_edit.html" class="edit-btn"><i class="fas fa-edit"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>ORDER12348</td>
-														<td>
-															<a href="#" target="_blank">Product Title Here</a>
-														</td>
-														<td>
-															<span class="delivery-time">12/06/2020</span>
-															<span class="delivery-time">01:00PM - 3.00PM</span>
-														</td>
-														<td>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</td>
-														<td>
-															<span class="badge-item badge-status">Pending</span>
-														</td>
-														<td>$120</td>
-														<td class="action-btns">
-															<a href="order_view.html" class="views-btn"><i class="fas fa-eye"></i></a>
-															<a href="order_edit.html" class="edit-btn"><i class="fas fa-edit"></i></a>
-														</td>
-													</tr>
+													<?php }}?>
 												</tbody>
 											</table>
 										</div>
@@ -155,29 +83,53 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-footer mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted-1">© 2020 <b>Gambo Supermarket</b>. by <a href="https://themeforest.net/user/gambolthemes">Gambolthemes</a></div>
-                            <div class="footer-links">
-                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/privacy_policy.html">Privacy Policy</a>
-                                <a href="http://gambolthemes.net/html-items/gambo_supermarket_demo/term_and_conditions.html">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="vendor/chart/highcharts.js"></script>
-		<script src="vendor/chart/exporting.js"></script>
-		<script src="vendor/chart/export-data.js"></script>
-		<script src="vendor/chart/accessibility.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/chart.js"></script>
-       
-    </body>
+               <?php include('footer.php')?>
 
-<!-- Mirrored from gambolthemes.net/html-items/gambo_admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Aug 2020 17:25:44 GMT -->
-</html>
+			   <?php
+			   include_once 'db.php';
+			   $result = mysqli_query($con,"SELECT * FROM news");
+			   if (mysqli_num_rows($result) > 0) {
+				 $row=mysqli_fetch_array($result);
+				   print_r($row);die;
+			   ?>
+
+				 <table>
+				 <tr>
+				   <td>Title</td>
+				   <td>Description</td>
+				   <td>user name</td>
+				   <td>Email id</td>
+				   <td>type</td>
+				   <td>date</td>
+				</tr>
+
+			   <?php
+			   $i=0;
+			   while($r = mysqli_fetch_array($result)) {
+			   ?>
+
+			   <tr>
+				   <td><?php echo $r['title']; ?></td>
+				   <td><?php echo $r['description'] ; ?></td>
+				   <td><?php echo $r['us_name']; ?></td>
+				   <td><?php echo $r['us_email'] ; ?></td>
+				   <td><?php echo $r['type'] ; ?></td>
+				   <td><?php echo $r['created_at']; ?></td>
+			   </tr>
+
+			   <?php
+			   $i++;
+			   }
+			   ?>
+
+			   </table>
+				<?php
+			   }
+
+			   else{
+				   echo "No result found";
+			   }
+			   ?>
+				</body>
+			   </html>
+			 ?>
